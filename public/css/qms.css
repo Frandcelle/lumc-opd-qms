@@ -1,0 +1,334 @@
+
+:root {
+    --lumc-navy: #101d42;
+    --lumc-blue: #203f91;
+    --lumc-red: #d92332;
+    --lumc-gold: #f2c94c;
+    --lumc-bg: #f3f6fb;
+    --lumc-white: #ffffff;
+    --lumc-text: #172b4d;
+    --lumc-muted: #65738b;
+    --lumc-border: #dce3ee;
+    --lumc-green: #16845b;
+    --lumc-shadow: 0 14px 40px rgba(16, 29, 66, .09);
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--lumc-bg);
+    color: var(--lumc-text);
+}
+
+button, input { font: inherit; }
+button { cursor: pointer; transition: .18s ease; }
+button:disabled { opacity: .6; cursor: wait; }
+
+.brandbar {
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px clamp(18px, 4vw, 48px);
+    background: var(--lumc-white);
+    border-bottom: 3px solid var(--lumc-blue);
+}
+
+.brandbar img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.brand-name {
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: .2px;
+}
+
+.brand-subtitle {
+    margin-top: 3px;
+    color: var(--lumc-muted);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+}
+
+.card, main.dashboard-container, main {
+    background: var(--lumc-white);
+    border: 1px solid var(--lumc-border);
+    border-radius: 20px;
+    box-shadow: var(--lumc-shadow);
+}
+
+.card {
+    width: min(100%, 590px);
+    padding: clamp(24px, 5vw, 44px);
+    text-align: center;
+}
+
+body:has(.card) {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+h1, h2 { color: var(--lumc-navy); }
+h1 { line-height: 1.2; }
+p { line-height: 1.55; }
+.sub, .brandbar + p { color: var(--lumc-muted); }
+
+.brand {
+    color: var(--lumc-blue);
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 1.8px;
+}
+
+button.primary, button.next, button.complete,
+button.btn-call, button.btn-submit {
+    background: var(--lumc-blue);
+    color: white;
+}
+
+button.secondary {
+    background: var(--lumc-red);
+    color: white;
+}
+
+button.primary:hover, button.next:hover,
+button.complete:hover, button.btn-call:hover,
+button.btn-submit:hover {
+    background: var(--lumc-navy);
+    transform: translateY(-1px);
+}
+
+button.secondary:hover {
+    background: #b71929;
+}
+
+button.primary, button.secondary,
+button.next, button.complete,
+button.btn-call, button.btn-submit {
+    border: 0;
+    border-radius: 12px;
+    padding: 17px 20px;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.ticket {
+    margin-top: 24px;
+    padding: 24px;
+    background: #f7f9fd;
+    border: 1px dashed #aebdd4;
+    border-radius: 16px;
+}
+
+.number, .ticket-number {
+    color: var(--lumc-blue);
+    font-size: clamp(32px, 7vw, 54px);
+    font-weight: 900;
+    line-height: 1.15;
+    overflow-wrap: anywhere;
+    margin: 20px 0;
+}
+
+input {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+    background: white;
+    color: var(--lumc-text);
+}
+
+input:focus {
+    outline: 3px solid #203f9125;
+    border-color: var(--lumc-blue);
+}
+
+label {
+    display: block;
+    margin: 14px 0 7px;
+    color: var(--lumc-text);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.row {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.row button { flex: 1; }
+
+button.recall {
+    color: var(--lumc-blue);
+    background: #e8eefb;
+    border: 1px solid #d7e1f6;
+}
+
+button.skip {
+    color: #9a4a00;
+    background: #fff1dc;
+    border: 1px solid #f4d7aa;
+}
+
+.status {
+    color: var(--lumc-muted);
+    text-align: center;
+    overflow-wrap: anywhere;
+}
+
+header {
+    background: var(--lumc-navy);
+    color: white;
+    text-align: center;
+    padding: 22px;
+    border-bottom: 4px solid var(--lumc-red);
+}
+
+header h1 { color: white; margin: 0; }
+header p { color: #dce5f5; }
+
+body:has(.station) {
+    background: var(--lumc-navy);
+    color: white;
+}
+
+body:has(.station) header {
+    background: #0b1530;
+}
+
+body:has(.station) main {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    min-height: 72vh;
+    border-radius: 0;
+    box-shadow: none;
+    border: 0;
+    background: transparent;
+}
+
+.station {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: clamp(18px, 4vw, 50px);
+    border-right: 1px solid #ffffff24;
+}
+
+.station:last-child { border-right: 0; }
+.station h2 { color: white; }
+
+.station .number {
+    width: min(100%, 700px);
+    padding: 25px 15px;
+    background: #ffffff0d;
+    border: 2px solid #ffffff25;
+    border-radius: 18px;
+    color: #ffffff;
+    font-size: clamp(42px, 8vw, 96px);
+}
+
+.station.reg .number {
+    border-color: #d9233280;
+    color: #ffb3ba;
+}
+
+body:has(.station) .caption,
+body:has(.station) footer {
+    color: #d6deed;
+}
+
+body:has(.station) footer {
+    text-align: center;
+    padding: 18px;
+    font-size: 13px;
+}
+
+[hidden] { display: none !important; }
+
+@media (max-width: 650px) {
+    body:has(.station) main { grid-template-columns: 1fr; }
+    .station {
+        min-height: 38vh;
+        border-right: 0;
+        border-bottom: 1px solid #ffffff24;
+    }
+    .row { flex-direction: column; }
+}
+
+
+/* LUMC official branding */
+.qms-brandbar {
+    width: 100%;
+    min-height: 82px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 14px;
+    padding: 14px clamp(16px, 3vw, 38px);
+    border-bottom: 3px solid var(--lumc-blue);
+    background: #fff;
+    border-radius: 0;
+    box-shadow: 0 3px 14px rgba(16, 29, 66, .06);
+}
+
+.qms-brandbar .logo-main {
+    width: 54px;
+    height: 54px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.qms-brandbar .brand-heading {
+    text-align: left;
+}
+
+.qms-brandbar .brand-name {
+    color: var(--lumc-navy);
+    font-size: clamp(14px, 2vw, 19px);
+    font-weight: 800;
+}
+
+.qms-brandbar .brand-subtitle {
+    color: #6b7890;
+    font-size: 10px;
+    letter-spacing: 1.1px;
+    margin-top: 4px;
+}
+
+.qms-brandbar .government-logos {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.qms-brandbar .government-logos img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+}
+
+@media (max-width: 560px) {
+    .qms-brandbar {
+        justify-content: center;
+    }
+
+    .qms-brandbar .government-logos {
+        margin-left: 0;
+        width: 100%;
+        justify-content: center;
+    }
+}
